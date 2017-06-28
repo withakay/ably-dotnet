@@ -9,7 +9,7 @@ using IO.Ably.Types;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace IO.Ably.Tests.Realtime
+namespace IO.Ably.Core.Tests.Realtime
 {
     [Collection("Presence Sandbox")]
     [Trait("requires", "sandbox")]
