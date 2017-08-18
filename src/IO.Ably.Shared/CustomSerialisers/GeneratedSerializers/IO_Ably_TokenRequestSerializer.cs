@@ -12,6 +12,7 @@ using System.Linq;
 
 namespace IO.Ably.CustomSerialisers
 {
+#if MSGPACK
     [System.CodeDom.Compiler.GeneratedCodeAttribute("MsgPack.Serialization.CodeDomSerializers.CodeDomSerializerBuilder", "0.6.0.0")]
     public class IO_Ably_TokenRequestSerializer : MsgPack.Serialization.MessagePackSerializer<IO.Ably.TokenRequest>
     {
@@ -300,4 +301,5 @@ namespace IO.Ably.CustomSerialisers
             }
         }
     }
+#endif
 }

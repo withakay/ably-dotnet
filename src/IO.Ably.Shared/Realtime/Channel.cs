@@ -126,6 +126,11 @@ namespace IO.Ably.Realtime
         /// </summary>
         public void Attach(Action<bool, ErrorInfo> callback = null)
         {
+            if (IsTerminalConnectionState)
+            {
+                throw new AblyException($"Cannot Attach channel when connection is in {ConnectionState} state");
+            }
+
             if (State == ChannelState.Attached)
             {
                 try
@@ -433,7 +438,7 @@ namespace IO.Ably.Realtime
                         AttachedSerial = protocolMessage.ChannelSerial;
                     }
 
-                    if(IsTerminalConnectionState == false)
+                    if (IsTerminalConnectionState == false)
                         SendQueuedMessages();
 
                     break;
@@ -506,7 +511,8 @@ namespace IO.Ably.Realtime
 
         private bool IsTerminalConnectionState => ConnectionState == ConnectionState.Closed ||
                                                   ConnectionState == ConnectionState.Closing ||
-                                                  ConnectionState == ConnectionState.Failed;
+                                                  ConnectionState == ConnectionState.Failed ||
+                                                  ConnectionState == ConnectionState.Suspended;
 
         private int SendQueuedMessages()
         {

@@ -60,9 +60,9 @@ namespace IO.Ably.Tests
 
             var options = await Fixture.GetSettings();
             var httpTokenAbly =
-                new AblyRest(new ClientOptions { Token = token.Token, Environment = options.Environment, Tls = false });
+                new AblyRest(new ClientOptions { Token = token.Token, Environment = options.Environment, Tls = false, UseBinaryProtocol = protocol == Protocol.MsgPack});
             var httpsTokenAbly =
-                new AblyRest(new ClientOptions { Token = token.Token, Environment = options.Environment, Tls = true });
+                new AblyRest(new ClientOptions { Token = token.Token, Environment = options.Environment, Tls = true, UseBinaryProtocol = protocol == Protocol.MsgPack});
 
             //If it doesn't throw we are good :)
             await httpTokenAbly.Channels.Get("foo").PublishAsync("test", "true");
@@ -73,6 +73,7 @@ namespace IO.Ably.Tests
         [ProtocolData]
         public async Task WithTokenId_WhenTryingToPublishToUnspecifiedChannel_ThrowsAblyException(Protocol protocol)
         {
+            Logger.LogLevel = LogLevel.Debug;
             var capability = new Capability();
             capability.AddResource("foo").AllowPublish();
 
@@ -80,7 +81,7 @@ namespace IO.Ably.Tests
 
             var token = ably.Auth.RequestTokenAsync(CreateTokenParams(capability), null).Result;
 
-            var tokenAbly = new AblyRest(new ClientOptions { Token = token.Token, Environment = "sandbox" });
+            var tokenAbly = new AblyRest(new ClientOptions { Token = token.Token, Environment = "sandbox", UseBinaryProtocol = protocol == Protocol.MsgPack});
 
             var error =
                 await

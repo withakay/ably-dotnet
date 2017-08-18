@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 namespace IO.Ably.CustomSerialisers {
-    
+#if MSGPACK
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("MsgPack.Serialization.CodeDomSerializers.CodeDomSerializerBuilder", "0.6.0.0")]
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -145,4 +145,5 @@ namespace IO.Ably.CustomSerialisers {
             }
         }
     }
+#endif
 }

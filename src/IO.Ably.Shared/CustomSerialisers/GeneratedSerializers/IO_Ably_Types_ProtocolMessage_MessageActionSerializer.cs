@@ -9,8 +9,8 @@
 //------------------------------------------------------------------------------
 
 namespace IO.Ably.CustomSerialisers {
-    
-    
+
+#if MSGPACK
     [System.CodeDom.Compiler.GeneratedCodeAttribute("MsgPack.Serialization.CodeDomSerializers.CodeDomSerializerBuilder", "0.6.0.0")]
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public class IO_Ably_Types_ProtocolMessage_MessageActionSerializer : MsgPack.Serialization.EnumMessagePackSerializer<IO.Ably.Types.ProtocolMessage.MessageAction> {
@@ -41,4 +41,5 @@ namespace IO.Ably.CustomSerialisers {
             }
         }
     }
+#endif
 }

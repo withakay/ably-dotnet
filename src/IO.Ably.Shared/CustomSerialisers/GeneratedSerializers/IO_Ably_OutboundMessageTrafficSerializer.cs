@@ -9,8 +9,8 @@
 //------------------------------------------------------------------------------
 
 namespace IO.Ably.CustomSerialisers {
-    
-    
+
+#if MSGPACK
     [System.CodeDom.Compiler.GeneratedCodeAttribute("MsgPack.Serialization.CodeDomSerializers.CodeDomSerializerBuilder", "0.6.0.0")]
     public class IO_Ably_OutboundMessageTrafficSerializer : MsgPack.Serialization.MessagePackSerializer<IO.Ably.OutboundMessageTraffic> {
         
@@ -228,4 +228,5 @@ namespace IO.Ably.CustomSerialisers {
             }
         }
     }
+#endif
 }

@@ -35,7 +35,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)ClientOptions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Config.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CustomSerialisers\CapabilityJsonConverter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)CustomSerialisers\CapabilityMessagePackSerializer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CustomSerialisers\DateTimeOffsetJsonConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CustomSerialisers\DateTimeOffsetMessagePackSerializer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CustomSerialisers\GeneratedSerializers\IO_Ably_Auth_TokenDetailsSerializer.cs" />

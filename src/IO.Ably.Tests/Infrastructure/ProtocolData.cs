@@ -9,7 +9,10 @@ namespace IO.Ably.Tests
         public override IEnumerable<object[]> GetData(MethodInfo testMethod)
         {
             yield return new object[] {Protocol.Json};
+#if MSGPACK
+
             yield return new object[] {Protocol.MsgPack};
+#endif
         }
     }
 }

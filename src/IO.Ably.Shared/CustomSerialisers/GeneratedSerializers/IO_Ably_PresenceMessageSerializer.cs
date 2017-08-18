@@ -7,13 +7,13 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
+#if MSGPACK
 using System.Linq;
 using MsgPack;
 
 namespace IO.Ably.CustomSerialisers {
-    
-    
+
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("MsgPack.Serialization.CodeDomSerializers.CodeDomSerializerBuilder", "0.6.0.0")]
     public class IO_Ably_PresenceMessageSerializer : MsgPack.Serialization.MessagePackSerializer<IO.Ably.PresenceMessage> {
         
@@ -309,3 +309,4 @@ namespace IO.Ably.CustomSerialisers {
         }
     }
 }
+#endif

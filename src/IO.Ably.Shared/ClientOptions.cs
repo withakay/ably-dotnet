@@ -132,7 +132,25 @@ namespace IO.Ably
         /// instead of the default binary msgpack encoding.
         /// Default: true
         /// </summary>
+#if MSGPACK
         public bool UseBinaryProtocol { get; set; } = true;
+#endif
+#if !MSGPACK
+        private bool _useBinary = false;
+
+        public bool UseBinaryProtocol
+        {
+            get => _useBinary;
+            set
+            {
+                if (value)
+                {
+                    Logger.Warning("MsgPack is currently disabled in this version of ably. Falling back to Json protocol.");
+                }
+            }
+        }
+
+#endif
 
         public TimeSpan DisconnectedRetryTimeout { get; set; } = Defaults.DisconnectedRetryTimeout;
         public TimeSpan SuspendedRetryTimeout { get; set; } = TimeSpan.FromSeconds(30);

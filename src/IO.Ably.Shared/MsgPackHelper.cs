@@ -1,3 +1,4 @@
+#if MSGPACK
 using System;
 using System.IO;
 using IO.Ably.CustomSerialisers;
@@ -76,3 +77,4 @@ namespace IO.Ably
         }
     }
 }
+#endif

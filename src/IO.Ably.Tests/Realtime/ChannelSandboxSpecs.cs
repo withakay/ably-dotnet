@@ -499,9 +499,11 @@ namespace IO.Ably.Tests.Realtime
         {
             get
             {
+#if MSGPACK
                 yield return new object[] { Protocol.MsgPack, GetAES128FixtureData() };
-                yield return new object[] { Protocol.Json, GetAES128FixtureData() };
                 yield return new object[] { Protocol.MsgPack, GetAES256FixtureData() };
+#endif
+                yield return new object[] { Protocol.Json, GetAES128FixtureData() };
                 yield return new object[] { Protocol.Json, GetAES256FixtureData() };
             }
         }

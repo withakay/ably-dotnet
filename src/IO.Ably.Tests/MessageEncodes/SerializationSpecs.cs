@@ -15,6 +15,8 @@ namespace IO.Ably.Tests
     {
         public class WithMsgPackEnconding
         {
+#if MSGPACK
+
             [Fact]
             public void CanSerialiseAndDeserializeProtocolMessage()
             {
@@ -31,6 +33,9 @@ namespace IO.Ably.Tests
 
         public ProtocolMessageSpecs(ITestOutputHelper output)
         {
+        }
+#endif
+
         }
     }
 }

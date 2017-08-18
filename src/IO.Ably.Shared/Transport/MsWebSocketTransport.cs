@@ -61,6 +61,7 @@ namespace IO.Ably.Transport
         {
             if (data.IsBinary)
             {
+#if MSGPACK
                 if (Logger.IsDebug)
                 {
                     try
@@ -73,6 +74,7 @@ namespace IO.Ably.Transport
                         Logger.Debug("Error parsing message as MsgPack.");
                     }
                 }
+#endif
 
                 Listener?.OnTransportDataReceived(data);
             }

@@ -1,3 +1,4 @@
+#if MSGPACK
 using System;
 using MsgPack;
 using MsgPack.Serialization;
@@ -20,3 +21,4 @@ namespace IO.Ably.CustomSerialisers
         }
     }
 }
+#endif

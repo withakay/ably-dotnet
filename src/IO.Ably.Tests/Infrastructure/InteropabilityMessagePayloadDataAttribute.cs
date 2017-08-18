@@ -15,7 +15,10 @@ namespace IO.Ably.Tests.Infrastructure
             {
                 var message = (JObject) jToken;
                 yield return new object[] { Protocol.Json, message };
+#if MSGPACK
+
                 yield return new object[] { Protocol.MsgPack, message };
+#endif
             }
         }
     }
