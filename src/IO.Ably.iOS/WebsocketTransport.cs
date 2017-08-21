@@ -182,6 +182,8 @@ namespace IO.Ably
 
         private void socket_DataReceived(object sender, DataReceivedEventArgs e)
         {
+#if MSGPACK
+
             if (Logger.IsDebug)
             {
                 try
@@ -194,6 +196,7 @@ namespace IO.Ably
                     Logger.Debug("Error parsing message as MsgPack.");
                 }
             }
+#endif
 
             Listener?.OnTransportDataReceived(new RealtimeTransportData(e.Data));
         }
