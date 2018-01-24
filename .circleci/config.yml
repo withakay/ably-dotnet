@@ -10,3 +10,4 @@ jobs:
     steps:
       - checkout
       - run: dotnet test src/IO.Ably.Tests.DotNetCore20/IO.Ably.Tests.DotNetCore20.csproj
+
