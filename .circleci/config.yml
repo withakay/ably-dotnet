@@ -9,4 +9,5 @@ jobs:
       DOTNET_CLI_TELEMETRY_OPTOUT: 1
     steps:
       - checkout
+      - run: ls -la
       - run: cd src/IO.Ably.Tests.DotNetCore20 && dotnet test
