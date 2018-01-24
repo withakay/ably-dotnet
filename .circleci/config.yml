@@ -9,5 +9,6 @@ jobs:
       DOTNET_CLI_TELEMETRY_OPTOUT: 1
     steps:
       - checkout
+      - run: git submodule update --init --recursive --remote
       - run: dotnet test src/IO.Ably.Tests.DotNetCore20/IO.Ably.Tests.DotNetCore20.csproj
 
